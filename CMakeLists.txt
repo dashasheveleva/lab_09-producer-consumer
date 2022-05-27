@@ -61,7 +61,7 @@ add_executable(demo
         ${CMAKE_CURRENT_SOURCE_DIR}/demo/main.cpp
 )
 add_executable(demo1
-        ${CMAKE_CURRENT_SOURCE_DIR}/sources/load.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/demo1/load.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
