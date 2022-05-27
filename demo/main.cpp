@@ -8,22 +8,17 @@ int main(int argc, const char *argv[])
   {
     boost::program_options::options_description desc{"Options"};
     desc.add_options()
-        ("help,h", "Help screen")
-            ("url,u", boost::program_options::value<std::string>(),
-             "URL website")
-                ("depth,d", boost::program_options::
-                                value<int>()->default_value(0),
-                 "Depth find")
-                    ("network_threads,n", boost::program_options::
-                                              value<int>()->default_value(
-                                                      1),
-                     "Number of threads for loading webpages")
-                        ("parser_threads,p", boost::program_options::
-                                                 value<int>()->default_value(
-                                                         1),
+    ("help,h", "Help screen")
+    ("url,u", boost::program_options::value<std::string>(), "URL website")
+    ("depth,d", boost::program_options::value<int>()->default_value(0),
+                "Depth find")
+    ("network_threads,n", boost::program_options::
+                                                 value<int>()->default_value(1),
+                          "Number of threads for loading webpages")
+    ("parser_threads,p", boost::program_options::value<int>()->default_value(1),
                          "Number of threads for processing webpages")
-                            ("output,o", boost::program_options::value<std::string>(),
-                             "Path to outout file");
+    ("output,o", boost::program_options::value<std::string>(),
+                 "Path to outout file");
 
     boost::program_options::variables_map vm;
     store(parse_command_line(argc, argv, desc), vm);
@@ -34,8 +29,7 @@ int main(int argc, const char *argv[])
     else if (vm.count("url") && vm.count("depth") &&
              vm.count("network_threads")
              && vm.count("parser_threads") && vm.count("output")){
-      Crawler crawl(vm["depth"].as<int>(),
-                    vm["output"].as<std::string>());
+      Crawler crawl(vm["depth"].as<int>(), vm["output"].as<std::string>());
       crawl.start(vm["url"].as<std::string>(),
                   vm["network_threads"].as<int>(),
                   vm["parser_threads"].as<int>());

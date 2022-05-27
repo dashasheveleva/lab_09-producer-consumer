@@ -1,10 +1,10 @@
 // Copyright 2022 Shevelyova Darya photodoshfy@gmail.com
 
-#include "parser.hpp"
+#include <parser.hpp>
 #include <string>
 
-bool not_repeated_img(const std::string& obj, const std::vector<std::string>&
-                                                  vec){
+bool not_repeated_img(const std::string& obj,
+                      const std::vector<std::string>&vec){
   for (const auto& i : vec) {
     if (obj == i) {
       return false;
@@ -13,8 +13,8 @@ bool not_repeated_img(const std::string& obj, const std::vector<std::string>&
   return true;
 }
 
-bool not_repeated_link(const std::string& obj, const std::deque<std::string>&
-                                                   vec){
+bool not_repeated_link(const std::string& obj,
+                       const std::deque<std::string>&vec){
   for (const auto& i : vec) {
     if (obj == i) {
       return false;

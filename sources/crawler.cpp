@@ -4,7 +4,8 @@
 #include <downloader.hpp>
 #include <parser.hpp>
 
-void Crawler::start(const std::string& url, const int& num_loaders,
+void Crawler::start(const std::string& url,
+                    const int& num_loaders,
                     const int& num_parsers) {
   Downloader downloader(num_loaders);
   Parser parser(num_parsers, img);
@@ -23,8 +24,8 @@ void Crawler::start(const std::string& url, const int& num_loaders,
         levels[i].first.pop_front();
       }
       if (!levels[i].second.empty()){
-        for (auto & a : parser.parse(levels[i].second.front(),
-                                    (i + 1 == depth))){
+        for (auto & a : parser.parse(levels[i].second.front(),(i + 1 == depth)))
+        {
           levels[i+1].first.push_back(a);
         }
         levels[i].second.pop_front();
@@ -32,8 +33,6 @@ void Crawler::start(const std::string& url, const int& num_loaders,
     }
   }
 }
-
-
 
 Crawler::~Crawler() {
   print_in_file(file);

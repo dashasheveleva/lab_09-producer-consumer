@@ -97,16 +97,14 @@ Html Downloader::loading_http(const std::string& host,
 
 Html Downloader::load_html_list(const std::string& url_) {
   auto res = loaders.enqueue([&](const std::string& url){
-    std::string host =
-        url.substr(url.find(':')+3)
-            .substr(0, url.substr(url.find(':')+3).find('/'));
+    std::string host = url
+                       .substr(url.find(':')+3)
+                       .substr(0, url.substr(url.find(':')+3).find('/'));
     if (url.find(':') == 5){
-      std::string target =
-          (url == std::string{"https://"
-                              + host + url.substr(url.find(':')+3)
-                                           .substr(url.substr(
-                                                          url.find(':')+3)
-                                                       .find('/'))}) ? "/" :
+      std::string target = (url == std::string{"https://"
+                            + host + url.substr(url.find(':')+3)
+                                        .substr(url.substr(url.find(':')+3)
+                                                           .find('/'))}) ? "/" :
               url.substr(url.find(':')+3).substr(
                   url.substr(url.find(':')+3).find('/'));
       return loading_https(host, target);
