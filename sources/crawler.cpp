@@ -24,8 +24,8 @@ void Crawler::start(const std::string& url,
         levels[i].first.pop_front();
       }
       if (!levels[i].second.empty()){
-        for (auto & a : parser.parse(levels[i].second.front(),(i + 1 == depth)))
-        {
+        for (auto & a : parser.parse(levels[i].second.front(),
+             (i + 1 == depth))){
           levels[i+1].first.push_back(a);
         }
         levels[i].second.pop_front();
