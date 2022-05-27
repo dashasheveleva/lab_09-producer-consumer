@@ -38,7 +38,6 @@ class Crawler{
 
   void start(const std::string& url, const int& num_loaders, const int&
                                                                  num_parsers);
-
   void print_in_file(const std::string& file_path);
  private:
   int depth;

@@ -18,7 +18,7 @@ int main(int argc, const char *argv[])
     ("parser_threads,p", boost::program_options::value<int>()->default_value(1),
                          "Number of threads for processing webpages")
     ("output,o", boost::program_options::value<std::string>(),
-                 "Path to outout file");
+                 "Path to output file");
 
     boost::program_options::variables_map vm;
     store(parse_command_line(argc, argv, desc), vm);
@@ -41,6 +41,6 @@ int main(int argc, const char *argv[])
   {
     std::cerr << ex.what() << '\n';
   }
-  //  Crawl crawl(1, "../cmake-build-debug/out.txt");
-  //  crawl.start("http://wokandbox.ru/", 1, 1);
+  //  Crawl crawl(1, "out.txt");
+  //  crawl.start("http://web-verstka.ru/", 1, 1);
 }
