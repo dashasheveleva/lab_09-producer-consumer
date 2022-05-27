@@ -1,4 +1,4 @@
-// Copyright 2021 Your Name <your_email>
+// Copyright 2022 Shevelyova Darya photodoshfy@gmail.com
 
 #ifndef INCLUDE_PARSER_HPP_
 #define INCLUDE_PARSER_HPP_
