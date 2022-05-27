@@ -1,8 +1,22 @@
 // Copyright 2021 Your Name <your_email>
 
-#ifndef INCLUDE_EXAMPLE_HPP_
-#define INCLUDE_EXAMPLE_HPP_
+#ifndef INCLUDE_DOWNLOADER_HPP_
+#define INCLUDE_DOWNLOADER_HPP_
 
-auto example() -> void;
+#include <crawler.hpp>
+#include <string>
 
-#endif // INCLUDE_EXAMPLE_HPP_
+class Downloader{
+ public:
+  explicit Downloader(const int& num_workers) : loaders(num_workers){}
+
+  Html load_html_list(const std::string& url);
+
+  static Html loading_https(std::string& host, const std::string& target);
+
+  static Html loading_http(const std::string& host, const std::string& target);
+
+ private:
+  ThreadPool loaders;
+};
+#endif  // INCLUDE_DOWNLOADER_HPP_
