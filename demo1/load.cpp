@@ -5,10 +5,9 @@
 int loading_html() {
   try
   {
-    auto const host = "www.boost.org";
+    auto const host = "www.reddit.com";
     auto const port = "443"; // https - 443, http - 80
-    auto const target = "/doc/libs/1_69_0/libs/beast/example/http/client/"
-        "sync-ssl/http_client_sync_ssl.cpp"; //
+    auto const target = "/r/aww/"; //
     int version = 11;
 
     // io_context требуется для всех операций ввода/вывода
