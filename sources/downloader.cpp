@@ -111,16 +111,11 @@ Html Downloader::load_html_list(const std::string& url_) {
     } else if (url.find(':') == 4) {
       std::string target =
           (url == std::string{
-                      "http://" + host + url.substr(url.find(
-                                                        ':')+3).substr(
-                                                 url.substr(url.find(
-                                                                ':')+3)
+                      "http://" + host + url.substr(url.find(':')+3).substr(
+                                                 url.substr(url.find(':')+3)
                                                      .find('/'))}) ? "/" :
-              url.substr(url.find(':')+3).substr(url.substr(url
-                                                                  .find(
-                                                                      ':')
-                                                              +3).find(
-                                                           '/'));
+              url.substr(url.find(':')+3).substr(url.substr(url.find(':')+3)
+                                                     .find('/'));
       return loading_http(host, target);
     } else {
       return Html{};
